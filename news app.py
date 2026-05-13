@@ -40,13 +40,13 @@ with tab1:
                 """
                 
                 response = genai_client.models.generate_content(
-                    model="gemini-2.0-flash", # 최신 모델 사용
-                    config=types.GenerateContentConfig(
-                        tools=[types.Tool(google_search=types.GoogleSearch())],
-                        temperature=0.0
-                    ),
-                    contents=prompt
-                )
+    model="gemini-1.5-flash",  # <--- 이 부분을 1.5로 변경!
+    config=types.GenerateContentConfig(
+        tools=[types.Tool(google_search=types.GoogleSearch())],
+        temperature=0.0
+    ),
+    contents=prompt
+)
 
                 # 2. JSON 파싱 및 URL 환각 방지 로직
                 raw_text = response.text
